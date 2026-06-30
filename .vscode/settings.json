@@ -67,5 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "PIC- IA Híbrida.slnx"
+    "dotnet.defaultSolution": "PIC- IA Híbrida.slnx",
+    "dotrush.roslyn.projectOrSolutionFiles": []
 }
