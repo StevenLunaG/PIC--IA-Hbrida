@@ -8,4 +8,5 @@ public struct TelemetryTensor
     public float IndiceCobertura;
     public float IndicePostDano;
     public float IET;
+    public int TargetClass;
 }

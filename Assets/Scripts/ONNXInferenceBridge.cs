@@ -1,12 +1,12 @@
-using UnityEngine;
-using Unity.InferenceEngine; // <-- NUEVO NAMESPACE EN UNITY 6
 using System;
+using Unity.InferenceEngine; // <-- NUEVO NAMESPACE EN UNITY 6
+using UnityEngine;
 
 public class ONNXInferenceBridge : MonoBehaviour
 {
     [Header("Inyección de Dependencias")]
     public TelemetryManager telemetryManager;
-    
+
     [Header("Modelo ONNX")]
     public ModelAsset onnxModel;
 
@@ -16,7 +16,7 @@ public class ONNXInferenceBridge : MonoBehaviour
 
     private Worker worker;
     private const int TENSOR_SIZE = 5;
-    
+
     // Caché de memoria para evitar GC Spikes (Zero Allocation)
     private float[] inputDataCache = new float[TENSOR_SIZE];
 
@@ -41,6 +41,15 @@ public class ONNXInferenceBridge : MonoBehaviour
 
     private void ExecuteInference(TelemetryTensor data)
     {
+        // BYPASS DE INACTIVIDAD (AFK DETECTION)
+        // Si no hay APM, ni uso de cobertura, ni evasión, el jugador está estático.
+        if (data.APM == 0f && data.IndiceCobertura == 0f && data.IndicePostDano == 0f && data.IET == 0f)
+        {
+            Debug.Log("[Inferencia Híbrida] Tensor nulo (Jugador Inactivo). Retornando a Patrullaje.");
+            OnProfileInferred?.Invoke(-1); // -1 = Patrullaje Errático
+            return;
+        }
+
         // 1. Población del array cacheado (0 GC Allocations)
         inputDataCache[0] = data.APM;
         inputDataCache[1] = data.PrecisionRelativa;
@@ -48,46 +57,40 @@ public class ONNXInferenceBridge : MonoBehaviour
         inputDataCache[3] = data.IndicePostDano;
         inputDataCache[4] = data.IET;
 
-        // 2. Creación del Tensor tipado (Uso de 'using' para forzar Dispose automático en memoria no administrada)
+        // 2. Creación del Tensor tipado 
         using Tensor<float> inputTensor = new Tensor<float>(new TensorShape(1, TENSOR_SIZE), inputDataCache);
 
-        // 3. Ejecución (Schedule reemplaza a Execute en la versión 2.x)
+        // 3. Ejecución 
         worker.Schedule(inputTensor);
 
         // 4. Extracción de Resultados
-        // PeekOutput devuelve la clase base abstracta 'Tensor'
         using Tensor outputTensor = worker.PeekOutput();
 
         int inferredProfile = -1;
 
-        // Casteo de patrones para manejar las salidas de ONNX (Int32, Int64 o Float32)
         if (outputTensor is Tensor<int> int32Tensor)
         {
-            // Hummingbird suele exportar las clases como Enteros de 32 bits
             int[] results = int32Tensor.DownloadToArray();
             inferredProfile = results[0];
         }
         else if (outputTensor is Tensor<long> int64Tensor)
         {
-            // XGBoost nativo suele exportar las clases como Enteros de 64 bits
             long[] results = int64Tensor.DownloadToArray();
             inferredProfile = (int)results[0];
         }
         else if (outputTensor is Tensor<float> floatTensor)
         {
-            // Redes neuronales estándar suelen devolver probabilidades en Float
             float[] results = floatTensor.DownloadToArray();
             inferredProfile = Mathf.RoundToInt(results[0]);
         }
         else
         {
-            // Diagnóstico profundo si falla
-            Debug.LogError($"[InferenceEngine] Formato desconocido. Clase C#: {outputTensor.GetType()} | ONNX DataType: {outputTensor.dataType}");
+            Debug.LogError($"[InferenceEngine] Formato desconocido. Tipo: {outputTensor.GetType()}");
             return;
         }
 
-        Debug.Log($"[Inferencia Híbrida] Tensor Inyectado. Perfil Detectado: {inferredProfile}");
-        
+        Debug.Log($"[Inferencia Híbrida] Tensor Inyectado. Perfil Detectado (XGBoost): {inferredProfile}");
+
         // Disparar evento a la FSM
         OnProfileInferred?.Invoke(inferredProfile);
     }
@@ -99,7 +102,7 @@ public class ONNXInferenceBridge : MonoBehaviour
         {
             telemetryManager.OnWindowCompleted -= ExecuteInference;
         }
-        
+
         // Destruir el motor de inferencia
         worker?.Dispose();
     }

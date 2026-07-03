@@ -1,6 +1,14 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
+/// <summary>
+/// Controlador cinemático del jugador. Ahora consume IPlayerInput (Strategy Pattern)
+/// para desacoplar la fuente de input de la lógica de movimiento y disparo.
+///
+/// En modo humano: se asigna HumanInput como inputProvider.
+/// En modo simulación: se asigna BotInput como inputProvider.
+///
+/// El cambio se realiza sin SetActive/Destroy — solo se reasigna la referencia.
+/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
@@ -8,42 +16,84 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Velocidad de traslación en unidades de Unity por segundo")]
     public float moveSpeed = 5.0f;
 
-    // Referencia al componente físico (Cacheado en Awake para evitar GetComponents en Update)
-    private Rigidbody2D rb;
+    [Header("Dependencias")]
+    [Tooltip("Componente que implementa IPlayerInput (HumanInput o BotInput)")]
+    public MonoBehaviour inputProviderComponent;
+
+    [Tooltip("Arma del jugador (para disparar via IPlayerInput)")]
+    public WeaponController weaponController;
+
+    // Referencia cacheada a la interfaz
+    private IPlayerInput _inputProvider;
+    private Rigidbody2D _rb;
+
     // Struct primitivo para almacenar el vector de dirección (0 Allocations)
-    private Vector2 movementInput;
+    private Vector2 _movementInput;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        CacheInputProvider();
+    }
+
+    /// <summary>
+    /// Hot-swap de input provider en runtime. Zero-allocation.
+    /// </summary>
+    public void SetInputProvider(MonoBehaviour provider)
+    {
+        inputProviderComponent = provider;
+        CacheInputProvider();
+    }
+
+    private void CacheInputProvider()
+    {
+        // Si hay asignación manual en Inspector, usarla
+        if (inputProviderComponent != null)
+        {
+            _inputProvider = inputProviderComponent as IPlayerInput;
+            if (_inputProvider == null)
+                Debug.LogError($"[PlayerController] {inputProviderComponent.name} no implementa IPlayerInput.");
+            return;
+        }
+
+        // Auto-descubrimiento: buscar cualquier IPlayerInput habilitado en este GameObject.
+        // Prioridad: HumanInput > BotInput (para modo humano por defecto).
+        MonoBehaviour[] components = GetComponents<MonoBehaviour>();
+        for (int i = 0; i < components.Length; i++)
+        {
+            if (components[i] != null && components[i].enabled && components[i] is IPlayerInput found)
+            {
+                _inputProvider = found;
+                inputProviderComponent = components[i];
+                Debug.Log($"[PlayerController] Auto-descubierto: {components[i].GetType().Name}");
+                return;
+            }
+        }
+
+        Debug.LogWarning("[PlayerController] No se encontró IPlayerInput. Asigna HumanInput o BotInput.");
     }
 
     private void Update()
     {
-        // 1. Polling directo del Input System (Compatible con Unity 6)
-        movementInput = Vector2.zero;
+        if (_inputProvider == null) return;
 
-        if (Keyboard.current != null)
-        {
-            if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed) movementInput.y += 1f;
-            if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed) movementInput.y -= 1f;
-            if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) movementInput.x -= 1f;
-            if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) movementInput.x += 1f;
-        }
+        _movementInput = _inputProvider.GetMovement();
 
-        // 2. Normalización vectorial
-        // Evita que el movimiento diagonal alcance una magnitud de 1.41 (Raíz de 2)
-        if (movementInput.sqrMagnitude > 1f)
+        // Normalización vectorial — evita magnitud diagonal > 1.0
+        if (_movementInput.sqrMagnitude > 1f)
+            _movementInput.Normalize();
+
+        // Disparo via IPlayerInput
+        if (_inputProvider.IsShooting() && weaponController != null)
         {
-            movementInput.Normalize();
+            weaponController.TryShoot(_inputProvider.GetAimDirection());
         }
     }
 
     private void FixedUpdate()
     {
-        // 3. Resolución Cinemática
-        // Se ejecuta sincronizado con el bucle físico, independiente del framerate.
-        // Previene el "Stuttering" o saltos visuales en el renderizado.
-        rb.MovePosition(rb.position + movementInput * (moveSpeed * Time.fixedDeltaTime));
+        // Resolución cinemática sincronizada con el bucle físico.
+        // Para BotInput (NavMeshAgent), GetMovement() retorna zero — el agente maneja su posición.
+        _rb.MovePosition(_rb.position + _movementInput * (moveSpeed * Time.fixedDeltaTime));
     }
 }

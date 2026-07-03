@@ -3,61 +3,67 @@ using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
 
+/// <summary>
+/// Exporta cada ventana de telemetría completada a un archivo CSV.
+///
+/// Arquitectura (desacoplada):
+/// ─ Solo depende de TelemetryManager; NO referencia a SimulationManager.
+/// ─ La clase objetivo llega dentro del tensor (TargetClass),
+///   eliminando cualquier acoplamiento con el orquestador.
+/// </summary>
 public class TelemetryCSVExporter : MonoBehaviour
 {
     [Header("Inyección de Dependencias")]
-    [Tooltip("Arrastra el objeto __SYSTEMS__ (TelemetryManager) aquí")]
+    [Tooltip("El motor de telemetría (Obligatorio)")]
     public TelemetryManager telemetryManager;
 
     [Header("Configuración de Salida")]
     public string fileName = "dataset_simulacion.csv";
 
-    // Ruta en cache
+    // Ruta en caché
     private string filePath;
 
     private void Start()
     {
-        // Application.dataPath apunta a la carpeta "Assets" del proyecto. 
-        // Solo puede ser consultado de forma segura desde el Main Thread.
         filePath = Path.Combine(Application.dataPath, fileName);
 
-        // Escribir cabeceras si el archivo es nuevo
         if (!File.Exists(filePath))
         {
-            string header = "APM,PrecisionRelativa,IndiceCobertura,IndicePostDano,IET\n";
+            // El contrato SDD exige 6 columnas
+            string header = "APM,PrecisionRelativa,IndiceCobertura,IndicePostDano,IET,Clase\n";
             File.WriteAllText(filePath, header);
             Debug.Log($"[Exportador] Archivo CSV inicializado en: {filePath}");
         }
 
-        // Suscripción al patrón Observador del TelemetryManager
         if (telemetryManager != null)
         {
             telemetryManager.OnWindowCompleted += HandleWindowCompleted;
         }
         else
         {
-            Debug.LogError("[Exportador] Faltan dependencias. Asigna el TelemetryManager.");
+            Debug.LogError("[Exportador] Falta TelemetryManager. Asígnalo en el Inspector.");
         }
     }
 
     private void OnDestroy()
     {
-        // Desuscripción obligatoria para evitar Memory Leaks
         if (telemetryManager != null)
-        {
             telemetryManager.OnWindowCompleted -= HandleWindowCompleted;
-        }
     }
 
+    /// <summary>
+    /// Recibe el tensor directamente del evento — la clase viaja dentro de tensor.TargetClass.
+    /// Si TargetClass == -1 (modo humano sin simulación), la columna Clase queda vacía.
+    /// </summary>
     private void HandleWindowCompleted(TelemetryTensor tensor)
     {
-        // Formateo estricto. CultureInfo.InvariantCulture asegura que se usen puntos (.) 
-        // para los decimales en lugar de comas (,), evitando corromper el CSV para Python/Pandas.
-        string dataRow = string.Format(CultureInfo.InvariantCulture,
-            "{0:F2},{1:F4},{2:F4},{3:F4},{4:F4}\n",
-            tensor.APM, tensor.PrecisionRelativa, tensor.IndiceCobertura, tensor.IndicePostDano, tensor.IET);
+        string classColumn = tensor.TargetClass >= 0 ? tensor.TargetClass.ToString() : "";
 
-        // Derivar la escritura a disco a un hilo secundario
+        string dataRow = string.Format(CultureInfo.InvariantCulture,
+            "{0:F2},{1:F4},{2:F4},{3:F4},{4:F4},{5}\n",
+            tensor.APM, tensor.PrecisionRelativa, tensor.IndiceCobertura,
+            tensor.IndicePostDano, tensor.IET, classColumn);
+
         _ = WriteToFileAsync(dataRow);
     }
 
@@ -67,8 +73,6 @@ public class TelemetryCSVExporter : MonoBehaviour
         {
             try
             {
-                // AppendAllText es altamente eficiente para ventanas de 10 segundos.
-                // Si la cadencia fuera por milisegundos, requeriríamos un FileStream persistente.
                 File.AppendAllText(filePath, line);
             }
             catch (System.Exception e)

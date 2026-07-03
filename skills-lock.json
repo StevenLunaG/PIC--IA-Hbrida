@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "Unity Performance": {
+      "source": "cryptorabea/claude_unity_dev_plugin",
+      "sourceType": "github",
+      "skillPath": "skills/unity-performance/SKILL.md",
+      "computedHash": "7cf718cb5941681cdf8d3ebd6b56d42ea964f9fabb940e65019d21586632308c"
+    },
+    "unity": {
+      "source": "mindrally/skills",
+      "sourceType": "github",
+      "skillPath": "unity/SKILL.md",
+      "computedHash": "55ab9fb1d0809ef1d0fd3d70258195e7eb28a67e1c84543cf3cba6325033ad87"
+    }
+  }
+}
