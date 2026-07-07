@@ -43,6 +43,10 @@ public class SimulationManager : MonoBehaviour
     [Tooltip("HealthController del NPC enemigo.")]
     public HealthController npcHealth;
 
+    [Header("NPC")]
+    [Tooltip("NPCStateMachine para activar modo simulación (cadencia y aggro escalados).")]
+    public NPCStateMachine npcStateMachine;
+
     [Header("Parámetros de Simulación")]
     [Tooltip("Número total de ventanas de telemetría a generar.")]
     public int totalVentanasObjetivo = 20000;
@@ -92,6 +96,13 @@ public class SimulationManager : MonoBehaviour
         Time.timeScale = 15f;
         // CORRECCIÓN CRÍTICA: fixedDeltaTime debe MULTIPLICARSE por timeScale.
         Time.fixedDeltaTime = 0.02f * 15f;
+
+        // Activar modo simulación del NPC: cadencia 3x más rápida y aggroRadius=999f.
+        // Garantiza suficientes eventos de daño por ventana para IndicePostDano.
+        if (npcStateMachine != null)
+            npcStateMachine.SetSimulationMode(true);
+        else
+            Debug.LogWarning("[SimMgr] npcStateMachine no asignado. NPC usará parámetros de combate normales.");
 
         // Suscribirse al evento — el TelemetryManager es el director del tiempo.
         telemetryManager.OnWindowCompleted += HandleWindowCompletedEvent;
@@ -175,6 +186,10 @@ public class SimulationManager : MonoBehaviour
             telemetryManager.OnWindowCompleted -= HandleWindowCompletedEvent;
 
         botInput.StopBot();
+
+        // Restaurar NPC a parámetros de combate normales (modo interactivo).
+        if (npcStateMachine != null)
+            npcStateMachine.SetSimulationMode(false);
 
         // Restaurar tiempo a escala normal — única vez que se toca post-inicio
         Time.timeScale = 1f;

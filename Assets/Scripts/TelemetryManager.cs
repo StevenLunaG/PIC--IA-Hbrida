@@ -32,8 +32,11 @@ public class TelemetryManager : MonoBehaviour
     private float timeInCover;
 
     private int damageEvents;
-    private int coverSoughtAfterDamage; // Veces que se cubrió ≤2 s después de recibir daño
+    private int coverSoughtAfterDamage;
     private float timeSinceLastDamage = 999f;
+    // Flag anti-doble-conteo: se habilita al recibir daño, se bloquea al registrar cobertura.
+    // Garantiza que coverSoughtAfterDamage se incremente como máximo 1 vez por evento de daño.
+    private bool _coverCountedForCurrentDamage = false;
 
     private float accumulatedDistance;
     private int distanceSamples;
@@ -84,14 +87,20 @@ public class TelemetryManager : MonoBehaviour
     public void SetCoverState(bool state)
     {
         isInCover = state;
-        if (state && timeSinceLastDamage <= 2.0f)
+        // Ventana de 8s de tiempo de juego (~0.53s reales a timeScale=15).
+        // Flag anti-doble-conteo: solo se registra 1 cobertura por evento de daño.
+        if (state && timeSinceLastDamage <= 8.0f && !_coverCountedForCurrentDamage)
+        {
             coverSoughtAfterDamage++;
+            _coverCountedForCurrentDamage = true;
+        }
     }
 
     public void RegisterDamageTaken()
     {
         damageEvents++;
         timeSinceLastDamage = 0f;
+        _coverCountedForCurrentDamage = false; // habilitar conteo para este golpe
     }
 
     // -----------------------------------------------------------------------
@@ -138,6 +147,7 @@ public class TelemetryManager : MonoBehaviour
         damageEvents = 0;
         coverSoughtAfterDamage = 0;
         timeSinceLastDamage = 999f;
+        _coverCountedForCurrentDamage = false;
         accumulatedDistance = 0f;
         distanceSamples = 0;
         distanceSampleTimer = 0f;

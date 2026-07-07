@@ -11,6 +11,10 @@ public class HealthController : MonoBehaviour
     [Tooltip("Asignar SOLO en el Jugador. El NPC puede dejarlo vacío.")]
     public TelemetryManager telemetryManager;
 
+    [Header("Modo Simulación (opcional)")]
+    [Tooltip("Asignar solo en el jugador/bot. Permite notificar daño al bot. Null en modo humano.")]
+    public SimulationManager simulationManager;
+
     // Eventos para la UI y Efectos Visuales (Desacoplados)
     public UnityEvent OnDeath;
     public UnityEvent<float> OnHealthChanged;
@@ -39,6 +43,13 @@ public class HealthController : MonoBehaviour
         if (telemetryManager != null)
         {
             telemetryManager.RegisterDamageTaken();
+        }
+
+        // Notificar al bot simulado para activar lógica post-daño (buscar cobertura)
+        // Null en modo humano → no-op
+        if (simulationManager != null)
+        {
+            simulationManager.NotifyBotDamageTaken();
         }
 
         if (currentHealth <= 0)

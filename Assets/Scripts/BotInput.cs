@@ -19,6 +19,10 @@ public class BotInput : MonoBehaviour, IPlayerInput
     public float baseSpeed = 5f;
     public float waypointArrivalRadius = 0.8f;
 
+    [Header("Límite Espacial")]
+    [Tooltip("Distancia mínima al NPC para estados de persecución directa.")]
+    [SerializeField] private float minEngagementDistance = 2.0f;
+
     // ── Estado interno (tipos de valor) ──
     private NavMeshAgent _agent;
     private BotTargetParams _params;
@@ -142,13 +146,20 @@ public class BotInput : MonoBehaviour, IPlayerInput
 
     private void UpdateConservador()
     {
-        Transform bestCover = GetNearestCoverAtDistance(_params.TargetDistancia, 5f);
+        // Reset: navega al centro exacto de la cobertura
+        _agent.stoppingDistance = 0f;
+        // Tolerancia ampliada a 12u; fallback a cobertura más cercana sin restricción
+        Transform bestCover = GetNearestCoverAtDistance(_params.TargetDistancia, 12f)
+            ?? GetNearestCover();
+
         if (bestCover != null) MoveTo(bestCover.position);
         else MaintainDistanceToNPC(_params.TargetDistancia);
     }
 
     private void UpdateAgresivo()
     {
+        // Límite espacial: se detiene a minEngagementDistance para evitar colisión física
+        _agent.stoppingDistance = minEngagementDistance;
         MoveTo(npcTransform.position);
     }
 
@@ -160,10 +171,14 @@ public class BotInput : MonoBehaviour, IPlayerInput
         {
             if (Random.value < 0.6f)
             {
+                // Persecución directa: límite espacial activo
+                _agent.stoppingDistance = minEngagementDistance;
                 MoveTo(npcTransform.position);
             }
             else
             {
+                // Exploración aleatoria: reset para alcanzar posición exacta
+                _agent.stoppingDistance = 0f;
                 Vector3 randomDir = Random.insideUnitSphere * 8f;
                 randomDir.z = 0f;
                 Vector3 randomTarget = transform.position + randomDir;
@@ -181,6 +196,8 @@ public class BotInput : MonoBehaviour, IPlayerInput
 
         if (enVentanaPostDano && _decidedToSeekCoverOnDamage)
         {
+            // Post-daño → cobertura: reset para alcanzar centro exacto
+            _agent.stoppingDistance = 0f;
             Transform cover = GetNearestCover();
             if (cover != null)
             {
@@ -193,15 +210,20 @@ public class BotInput : MonoBehaviour, IPlayerInput
         _repositionTimer -= dt;
         if (_repositionTimer <= 0f || HasArrivedAtDestination())
         {
+            // sqrMagnitude: O(1) sin raíz cuadrada (Regla 4)
             float sqrDistanciaActual = ((Vector2)transform.position - (Vector2)npcTransform.position).sqrMagnitude;
             float targetThreshold = _params.TargetDistancia + 3f;
 
             if (sqrDistanciaActual > (targetThreshold * targetThreshold))
             {
+                // Acercamiento al NPC: límite espacial activo
+                _agent.stoppingDistance = minEngagementDistance;
                 MoveTo(npcTransform.position);
             }
             else
             {
+                // Reposicionamiento táctico → cobertura: reset
+                _agent.stoppingDistance = 0f;
                 Transform cover = GetNearestCover();
                 if (cover != null) MoveTo(cover.position);
             }
@@ -262,11 +284,15 @@ public class BotInput : MonoBehaviour, IPlayerInput
 
         if (sqrDist < (minTarget * minTarget))
         {
+            // Alejarse: reset para alcanzar posición de evasión exacta
+            _agent.stoppingDistance = 0f;
             Vector3 awayDir = new Vector3(-toNPC.x, -toNPC.y, 0f).normalized;
             MoveTo(transform.position + awayDir * 3f);
         }
         else if (sqrDist > (maxTarget * maxTarget))
         {
+            // Acercarse al NPC: límite espacial activo
+            _agent.stoppingDistance = minEngagementDistance;
             MoveTo(npcTransform.position);
         }
     }
