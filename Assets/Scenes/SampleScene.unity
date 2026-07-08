@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TelemetryCSVExporter
   telemetryManager: {fileID: 386765739}
-  fileName: dataset_simulacion.csv
+  fileName: dataset_simulacion_v2.csv
 --- !u!114 &386765742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ONNXInferenceBridge
   telemetryManager: {fileID: 386765739}
-  onnxModel: {fileID: 5022602860645237092, guid: ae77437e15047ea438a7d6a6843d82e8, type: 3}
+  onnxModel: {fileID: 0}
 --- !u!114 &386765743
 MonoBehaviour:
   m_ObjectHideFlags: 0

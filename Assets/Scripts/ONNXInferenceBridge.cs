@@ -15,7 +15,7 @@ public class ONNXInferenceBridge : MonoBehaviour
     public event Action<int> OnProfileInferred;
 
     private Worker worker;
-    private const int TENSOR_SIZE = 5;
+    private const int TENSOR_SIZE = 7;
 
     // Caché de memoria para evitar GC Spikes (Zero Allocation)
     private float[] inputDataCache = new float[TENSOR_SIZE];
@@ -42,8 +42,9 @@ public class ONNXInferenceBridge : MonoBehaviour
     private void ExecuteInference(TelemetryTensor data)
     {
         // BYPASS DE INACTIVIDAD (AFK DETECTION)
-        // Si no hay APM, ni uso de cobertura, ni evasión, el jugador está estático.
-        if (data.APM == 0f && data.IndiceCobertura == 0f && data.IndicePostDano == 0f && data.IET == 0f)
+        // Si no hay APM, ni uso de cobertura, ni evasión, ni distancia registrada, el jugador está estático.
+        if (data.APM == 0f && data.IndiceCobertura == 0f && data.IndicePostDano == 0f
+            && data.IET == 0f && data.DistanciaPromedio == 0f)
         {
             Debug.Log("[Inferencia Híbrida] Tensor nulo (Jugador Inactivo). Retornando a Patrullaje.");
             OnProfileInferred?.Invoke(-1); // -1 = Patrullaje Errático
@@ -51,11 +52,15 @@ public class ONNXInferenceBridge : MonoBehaviour
         }
 
         // 1. Población del array cacheado (0 GC Allocations)
+        // Orden debe coincidir exactamente con el orden de columnas del CSV de entrenamiento:
+        // APM | PrecisionRelativa | IndiceCobertura | IndicePostDano | IET | DistanciaPromedio | VarianzaDistancia
         inputDataCache[0] = data.APM;
         inputDataCache[1] = data.PrecisionRelativa;
         inputDataCache[2] = data.IndiceCobertura;
         inputDataCache[3] = data.IndicePostDano;
         inputDataCache[4] = data.IET;
+        inputDataCache[5] = data.DistanciaPromedio;
+        inputDataCache[6] = data.VarianzaDistancia;
 
         // 2. Creación del Tensor tipado 
         using Tensor<float> inputTensor = new Tensor<float>(new TensorShape(1, TENSOR_SIZE), inputDataCache);

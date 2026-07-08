@@ -29,8 +29,8 @@ public class TelemetryCSVExporter : MonoBehaviour
 
         if (!File.Exists(filePath))
         {
-            // El contrato SDD exige 6 columnas
-            string header = "APM,PrecisionRelativa,IndiceCobertura,IndicePostDano,IET,Clase\n";
+            // Contrato actualizado: 8 columnas (5 originales + DistanciaPromedio + VarianzaDistancia + Clase)
+            string header = "APM,PrecisionRelativa,IndiceCobertura,IndicePostDano,IET,DistanciaPromedio,VarianzaDistancia,Clase\n";
             File.WriteAllText(filePath, header);
             Debug.Log($"[Exportador] Archivo CSV inicializado en: {filePath}");
         }
@@ -60,9 +60,10 @@ public class TelemetryCSVExporter : MonoBehaviour
         string classColumn = tensor.TargetClass >= 0 ? tensor.TargetClass.ToString() : "";
 
         string dataRow = string.Format(CultureInfo.InvariantCulture,
-            "{0:F2},{1:F4},{2:F4},{3:F4},{4:F4},{5}\n",
+            "{0:F2},{1:F4},{2:F4},{3:F4},{4:F4},{5:F4},{6:F4},{7}\n",
             tensor.APM, tensor.PrecisionRelativa, tensor.IndiceCobertura,
-            tensor.IndicePostDano, tensor.IET, classColumn);
+            tensor.IndicePostDano, tensor.IET,
+            tensor.DistanciaPromedio, tensor.VarianzaDistancia, classColumn);
 
         _ = WriteToFileAsync(dataRow);
     }

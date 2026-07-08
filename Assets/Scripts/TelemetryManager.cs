@@ -39,6 +39,7 @@ public class TelemetryManager : MonoBehaviour
     private bool _coverCountedForCurrentDamage = false;
 
     private float accumulatedDistance;
+    private float accumulatedDistanceSquared; // Para varianza: SumXi^2
     private int distanceSamples;
     private float distanceSampleTimer;
 
@@ -62,7 +63,9 @@ public class TelemetryManager : MonoBehaviour
         distanceSampleTimer += dt;
         if (distanceSampleTimer >= 0.5f)
         {
-            accumulatedDistance += Vector2.Distance(playerTransform.position, npcTransform.position);
+            float sampleDist = Vector2.Distance(playerTransform.position, npcTransform.position);
+            accumulatedDistance += sampleDist;
+            accumulatedDistanceSquared += sampleDist * sampleDist; // Para Var = E[X^2] - E[X]^2
             distanceSamples++;
             distanceSampleTimer = 0f;
         }
@@ -127,15 +130,23 @@ public class TelemetryManager : MonoBehaviour
             TargetClass = currentTargetClass // Inyección de la etiqueta supervisada
         };
 
-        // 5. IET (depende de APM e IndiceCobertura ya calculados)
+        // 5. Distancia promedio, varianza e IET (dependen de los acumuladores de distancia)
         float averageDistance = distanceSamples > 0 ? accumulatedDistance / distanceSamples : 0.1f;
+
+        // Varianza: Var = E[X^2] - E[X]^2  (formula de König-Huygens, zero-allocation)
+        float meanSquare = distanceSamples > 0 ? accumulatedDistanceSquared / distanceSamples : 0f;
+        float varianceDist = Mathf.Max(0f, meanSquare - (averageDistance * averageDistance));
+
         tensor.IET = (tensor.APM * (1.0f - tensor.IndiceCobertura)) / (averageDistance + 1.0f);
+        tensor.DistanciaPromedio = averageDistance;
+        tensor.VarianzaDistancia = varianceDist;
 
         OnWindowCompleted?.Invoke(tensor);
 
         Debug.Log($"[Telemetry] APM:{tensor.APM:F1} PREC:{tensor.PrecisionRelativa:F3} " +
                   $"COB:{tensor.IndiceCobertura:F3} PDANO:{tensor.IndicePostDano:F3} " +
-                  $"IET:{tensor.IET:F3} CLASE:{currentTargetClass}");
+                  $"IET:{tensor.IET:F3} DIST:{averageDistance:F2} VAR:{varianceDist:F2} " +
+                  $"CLASE:{currentTargetClass}");
     }
 
     private void ResetAccumulators()
@@ -149,6 +160,7 @@ public class TelemetryManager : MonoBehaviour
         timeSinceLastDamage = 999f;
         _coverCountedForCurrentDamage = false;
         accumulatedDistance = 0f;
+        accumulatedDistanceSquared = 0f;
         distanceSamples = 0;
         distanceSampleTimer = 0f;
         // isInCover NO se resetea: mantiene su estado físico actual
