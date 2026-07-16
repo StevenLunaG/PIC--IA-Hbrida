@@ -12,10 +12,15 @@ public class WeaponController : MonoBehaviour
     public LayerMask targetMask;
     public Transform firePoint; // Punto desde donde sale el disparo (ej. el cañón)
 
+    [Header("VFX")]
+    public LineRenderer bulletTrail;
+    public float trailDuration = 0.05f;
+
     [Header("Dependencias (Opcional)")]
     public TelemetryManager telemetryManager;
 
     private float nextFireTime = 0f;
+    private float _trailTimer = 0f;
 
     public void TryShoot(Vector2 direction)
     {
@@ -31,8 +36,9 @@ public class WeaponController : MonoBehaviour
 
         if (hit.collider != null)
         {
-            // Debug visual temporal para ver el rayo en la ventana de Escena
-            Debug.DrawLine(firePoint.position, hit.point, Color.red, 0.5f);
+            bulletTrail.enabled = true;
+            bulletTrail.SetPosition(0, firePoint.position);
+            bulletTrail.SetPosition(1, hit.point);
 
             // Intentar extraer el sistema de salud del objetivo impactado
             HealthController targetHealth = hit.collider.GetComponent<HealthController>();
@@ -47,7 +53,22 @@ public class WeaponController : MonoBehaviour
         else
         {
             // Disparo fallido (al aire)
-            Debug.DrawRay(firePoint.position, direction * weaponRange, Color.yellow, 0.5f);
+            bulletTrail.enabled = true;
+            bulletTrail.SetPosition(0, firePoint.position);
+            bulletTrail.SetPosition(1, firePoint.position + (Vector3)(direction * weaponRange));
+        }
+
+        _trailTimer = trailDuration;
+    }
+
+    private void Update()
+    {
+        if (bulletTrail == null || !bulletTrail.enabled) return;
+
+        _trailTimer -= Time.deltaTime;
+        if (_trailTimer <= 0f)
+        {
+            bulletTrail.enabled = false;
         }
     }
 }

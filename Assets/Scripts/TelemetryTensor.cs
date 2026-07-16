@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// Contrato de datos estricto [1, 7]
+// Tensor de todas las vairables [1, 7]
 // Indices del tensor de inferencia:
 // 0: APM  1: PrecisionRelativa  2: IndiceCobertura
 // 3: IndicePostDano  4: IET  5: DistanciaPromedio  6: VarianzaDistancia

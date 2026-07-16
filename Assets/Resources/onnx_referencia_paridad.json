@@ -1,0 +1,1522 @@
+[
+  {
+    "id": 0,
+    "apm": 30.0,
+    "precisionRelativa": 0.2,
+    "iet": 0.6171,
+    "varianzaDistancia": 11.0376,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.971417,
+      0.000416,
+      0.000422,
+      0.027744
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 1,
+    "apm": 30.0,
+    "precisionRelativa": 0.2,
+    "iet": 0.6158,
+    "varianzaDistancia": 24.553,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.978511,
+      0.000337,
+      0.000342,
+      0.02081
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 2,
+    "apm": 30.0,
+    "precisionRelativa": 0.2,
+    "iet": 0.8089,
+    "varianzaDistancia": 8.6104,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.923693,
+      0.000686,
+      0.000696,
+      0.074925
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 3,
+    "apm": 42.0,
+    "precisionRelativa": 0.1429,
+    "iet": 0.9418,
+    "varianzaDistancia": 9.6966,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.645281,
+      0.001137,
+      0.001155,
+      0.352427
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 4,
+    "apm": 30.0,
+    "precisionRelativa": 0.2,
+    "iet": 0.6347,
+    "varianzaDistancia": 25.2228,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.982284,
+      0.000307,
+      0.000312,
+      0.017097
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 5,
+    "apm": 30.0,
+    "precisionRelativa": 0.0,
+    "iet": 0.8305,
+    "varianzaDistancia": 16.4811,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.96931,
+      0.000442,
+      0.000449,
+      0.029799
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 6,
+    "apm": 30.0,
+    "precisionRelativa": 0.0,
+    "iet": 0.8351,
+    "varianzaDistancia": 16.6551,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.964215,
+      0.000496,
+      0.000503,
+      0.034786
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 7,
+    "apm": 24.0,
+    "precisionRelativa": 0.25,
+    "iet": 0.7236,
+    "varianzaDistancia": 17.1026,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.902652,
+      0.000758,
+      0.000769,
+      0.09582
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 8,
+    "apm": 36.0,
+    "precisionRelativa": 0.1667,
+    "iet": 0.9173,
+    "varianzaDistancia": 14.4491,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.944893,
+      0.000636,
+      0.000646,
+      0.053825
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 9,
+    "apm": 30.0,
+    "precisionRelativa": 0.4,
+    "iet": 0.812,
+    "varianzaDistancia": 12.1802,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.990093,
+      0.000263,
+      0.000268,
+      0.009376
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 10,
+    "apm": 36.0,
+    "precisionRelativa": 0.1667,
+    "iet": 0.8009,
+    "varianzaDistancia": 13.384,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.940204,
+      0.000608,
+      0.000617,
+      0.058571
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 11,
+    "apm": 42.0,
+    "precisionRelativa": 0.0,
+    "iet": 1.0464,
+    "varianzaDistancia": 10.0534,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.697651,
+      0.001011,
+      0.001027,
+      0.300311
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 12,
+    "apm": 36.0,
+    "precisionRelativa": 0.1667,
+    "iet": 0.9288,
+    "varianzaDistancia": 17.9975,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.958103,
+      0.000574,
+      0.000582,
+      0.040741
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 13,
+    "apm": 30.0,
+    "precisionRelativa": 0.2,
+    "iet": 0.7015,
+    "varianzaDistancia": 10.6411,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.970593,
+      0.000428,
+      0.000435,
+      0.028545
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 14,
+    "apm": 30.0,
+    "precisionRelativa": 0.2,
+    "iet": 0.7454,
+    "varianzaDistancia": 8.2475,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.936691,
+      0.000631,
+      0.000641,
+      0.062038
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 15,
+    "apm": 30.0,
+    "precisionRelativa": 0.2,
+    "iet": 0.7444,
+    "varianzaDistancia": 14.5273,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.965203,
+      0.000475,
+      0.000483,
+      0.033839
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 16,
+    "apm": 42.0,
+    "precisionRelativa": 0.1429,
+    "iet": 1.2597,
+    "varianzaDistancia": 15.0831,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.544022,
+      0.001231,
+      0.00125,
+      0.453497
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 17,
+    "apm": 30.0,
+    "precisionRelativa": 0.2,
+    "iet": 0.8086,
+    "varianzaDistancia": 16.1398,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.964649,
+      0.000487,
+      0.000494,
+      0.03437
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 18,
+    "apm": 36.0,
+    "precisionRelativa": 0.1667,
+    "iet": 0.7125,
+    "varianzaDistancia": 15.581,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.937693,
+      0.000565,
+      0.000574,
+      0.061168
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 19,
+    "apm": 30.0,
+    "precisionRelativa": 0.2,
+    "iet": 0.7086,
+    "varianzaDistancia": 10.1917,
+    "claseOriginalDataset": "Conservador",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.97192,
+      0.000407,
+      0.000413,
+      0.027261
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 20,
+    "apm": 78.0,
+    "precisionRelativa": 0.8462,
+    "iet": 27.8903,
+    "varianzaDistancia": 0.1586,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      5.4e-05,
+      0.999749,
+      0.000133,
+      6.4e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 21,
+    "apm": 96.0,
+    "precisionRelativa": 0.9375,
+    "iet": 33.9999,
+    "varianzaDistancia": 0.114,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      5.8e-05,
+      0.999725,
+      0.000148,
+      6.8e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 22,
+    "apm": 84.0,
+    "precisionRelativa": 0.9286,
+    "iet": 28.656,
+    "varianzaDistancia": 0.0889,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      6.6e-05,
+      0.999644,
+      0.000212,
+      7.8e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 23,
+    "apm": 114.0,
+    "precisionRelativa": 0.8947,
+    "iet": 41.2844,
+    "varianzaDistancia": 0.1961,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      5.3e-05,
+      0.999751,
+      0.000133,
+      6.2e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 24,
+    "apm": 90.0,
+    "precisionRelativa": 0.7333,
+    "iet": 32.7763,
+    "varianzaDistancia": 0.1704,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      6.2e-05,
+      0.999605,
+      0.00026,
+      7.3e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 25,
+    "apm": 84.0,
+    "precisionRelativa": 0.9286,
+    "iet": 29.341,
+    "varianzaDistancia": 0.1676,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      5.5e-05,
+      0.999727,
+      0.000152,
+      6.5e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 26,
+    "apm": 72.0,
+    "precisionRelativa": 0.8333,
+    "iet": 27.5433,
+    "varianzaDistancia": 0.1994,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      5.1e-05,
+      0.999784,
+      0.000107,
+      5.9e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 27,
+    "apm": 96.0,
+    "precisionRelativa": 0.8125,
+    "iet": 33.8566,
+    "varianzaDistancia": 0.18,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      5.1e-05,
+      0.999774,
+      0.000115,
+      6e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 28,
+    "apm": 102.0,
+    "precisionRelativa": 0.8824,
+    "iet": 39.3095,
+    "varianzaDistancia": 0.151,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      5e-05,
+      0.999753,
+      0.000138,
+      5.9e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 29,
+    "apm": 108.0,
+    "precisionRelativa": 0.8333,
+    "iet": 39.0388,
+    "varianzaDistancia": 0.1909,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      4.2e-05,
+      0.999825,
+      8.5e-05,
+      4.9e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 30,
+    "apm": 96.0,
+    "precisionRelativa": 0.75,
+    "iet": 32.0768,
+    "varianzaDistancia": 0.0832,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      7e-05,
+      0.999479,
+      0.000368,
+      8.3e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 31,
+    "apm": 90.0,
+    "precisionRelativa": 1.0,
+    "iet": 31.1034,
+    "varianzaDistancia": 0.1659,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      5.5e-05,
+      0.999733,
+      0.000146,
+      6.5e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 32,
+    "apm": 102.0,
+    "precisionRelativa": 0.8824,
+    "iet": 38.6159,
+    "varianzaDistancia": 0.2272,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      6e-05,
+      0.999731,
+      0.000138,
+      7.1e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 33,
+    "apm": 102.0,
+    "precisionRelativa": 0.9412,
+    "iet": 35.2372,
+    "varianzaDistancia": 0.0833,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      6.3e-05,
+      0.999667,
+      0.000195,
+      7.5e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 34,
+    "apm": 90.0,
+    "precisionRelativa": 0.8667,
+    "iet": 30.8518,
+    "varianzaDistancia": 0.1357,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      4.8e-05,
+      0.999781,
+      0.000113,
+      5.7e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 35,
+    "apm": 102.0,
+    "precisionRelativa": 0.9412,
+    "iet": 35.7313,
+    "varianzaDistancia": 0.0732,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      7e-05,
+      0.999621,
+      0.000227,
+      8.3e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 36,
+    "apm": 90.0,
+    "precisionRelativa": 1.0,
+    "iet": 31.0464,
+    "varianzaDistancia": 0.0544,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      0.000101,
+      0.999273,
+      0.000506,
+      0.00012
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 37,
+    "apm": 108.0,
+    "precisionRelativa": 1.0,
+    "iet": 38.6288,
+    "varianzaDistancia": 0.065,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      8.2e-05,
+      0.999429,
+      0.000392,
+      9.7e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 38,
+    "apm": 84.0,
+    "precisionRelativa": 0.8571,
+    "iet": 32.3184,
+    "varianzaDistancia": 0.1501,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      4.5e-05,
+      0.999805,
+      9.6e-05,
+      5.4e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 39,
+    "apm": 102.0,
+    "precisionRelativa": 0.8824,
+    "iet": 41.2476,
+    "varianzaDistancia": 0.1881,
+    "claseOriginalDataset": "Agresivo",
+    "expectedLabel": 1,
+    "expectedProbabilities": [
+      5e-05,
+      0.999778,
+      0.000113,
+      5.9e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 40,
+    "apm": 144.0,
+    "precisionRelativa": 0.5417,
+    "iet": 38.2584,
+    "varianzaDistancia": 3.0612,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      0.000126,
+      0.000326,
+      0.999381,
+      0.000166
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 41,
+    "apm": 90.0,
+    "precisionRelativa": 0.2667,
+    "iet": 10.1074,
+    "varianzaDistancia": 10.3537,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      7e-05,
+      4.3e-05,
+      0.999214,
+      0.000672
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 42,
+    "apm": 78.0,
+    "precisionRelativa": 0.4615,
+    "iet": 15.8517,
+    "varianzaDistancia": 2.7738,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      5.1e-05,
+      5.2e-05,
+      0.999837,
+      6e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 43,
+    "apm": 168.0,
+    "precisionRelativa": 0.5714,
+    "iet": 38.6836,
+    "varianzaDistancia": 3.0096,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      0.000141,
+      0.000365,
+      0.999327,
+      0.000167
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 44,
+    "apm": 96.0,
+    "precisionRelativa": 0.375,
+    "iet": 7.295,
+    "varianzaDistancia": 15.4508,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      0.000984,
+      0.000535,
+      0.926355,
+      0.072125
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 45,
+    "apm": 132.0,
+    "precisionRelativa": 0.5909,
+    "iet": 38.8441,
+    "varianzaDistancia": 1.6045,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      0.000114,
+      0.000408,
+      0.999343,
+      0.000135
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 46,
+    "apm": 168.0,
+    "precisionRelativa": 0.3214,
+    "iet": 19.6877,
+    "varianzaDistancia": 7.0764,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      3.9e-05,
+      2.5e-05,
+      0.999863,
+      7.3e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 47,
+    "apm": 120.0,
+    "precisionRelativa": 0.55,
+    "iet": 34.9006,
+    "varianzaDistancia": 1.6228,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      0.000144,
+      0.00081,
+      0.998876,
+      0.00017
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 48,
+    "apm": 102.0,
+    "precisionRelativa": 0.7647,
+    "iet": 37.9488,
+    "varianzaDistancia": 0.46,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      0.000708,
+      0.115316,
+      0.88314,
+      0.000836
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 49,
+    "apm": 144.0,
+    "precisionRelativa": 0.4167,
+    "iet": 16.4849,
+    "varianzaDistancia": 15.1664,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      5e-05,
+      2.8e-05,
+      0.999811,
+      0.000111
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 50,
+    "apm": 108.0,
+    "precisionRelativa": 0.4444,
+    "iet": 16.5036,
+    "varianzaDistancia": 22.0857,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      5.4e-05,
+      3.5e-05,
+      0.999771,
+      0.00014
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 51,
+    "apm": 72.0,
+    "precisionRelativa": 0.75,
+    "iet": 15.2482,
+    "varianzaDistancia": 1.8357,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      0.000373,
+      0.000527,
+      0.998666,
+      0.000434
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 52,
+    "apm": 138.0,
+    "precisionRelativa": 0.4783,
+    "iet": 27.385,
+    "varianzaDistancia": 2.8432,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      5e-05,
+      9.3e-05,
+      0.999797,
+      6e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 53,
+    "apm": 102.0,
+    "precisionRelativa": 0.2353,
+    "iet": 14.3999,
+    "varianzaDistancia": 12.2465,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      5.6e-05,
+      3e-05,
+      0.999799,
+      0.000115
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 54,
+    "apm": 108.0,
+    "precisionRelativa": 0.5,
+    "iet": 23.1774,
+    "varianzaDistancia": 3.3786,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      4.8e-05,
+      3.4e-05,
+      0.999854,
+      6.4e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 55,
+    "apm": 138.0,
+    "precisionRelativa": 0.4783,
+    "iet": 15.664,
+    "varianzaDistancia": 6.5101,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      4.1e-05,
+      2.9e-05,
+      0.999844,
+      8.6e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 56,
+    "apm": 120.0,
+    "precisionRelativa": 0.3,
+    "iet": 13.3243,
+    "varianzaDistancia": 38.6722,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      5.4e-05,
+      3.2e-05,
+      0.999778,
+      0.000135
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 57,
+    "apm": 138.0,
+    "precisionRelativa": 0.6087,
+    "iet": 37.6982,
+    "varianzaDistancia": 1.8951,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      9e-05,
+      0.000323,
+      0.999479,
+      0.000107
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 58,
+    "apm": 120.0,
+    "precisionRelativa": 0.25,
+    "iet": 24.0778,
+    "varianzaDistancia": 3.5461,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      4.3e-05,
+      2.6e-05,
+      0.999878,
+      5.3e-05
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 59,
+    "apm": 102.0,
+    "precisionRelativa": 0.5882,
+    "iet": 27.438,
+    "varianzaDistancia": 1.8226,
+    "claseOriginalDataset": "Caotico",
+    "expectedLabel": 2,
+    "expectedProbabilities": [
+      0.000105,
+      0.000406,
+      0.999364,
+      0.000125
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 60,
+    "apm": 42.0,
+    "precisionRelativa": 0.1429,
+    "iet": 1.2973,
+    "varianzaDistancia": 7.1191,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.440426,
+      0.001289,
+      0.001308,
+      0.556977
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 61,
+    "apm": 66.0,
+    "precisionRelativa": 0.0909,
+    "iet": 1.8021,
+    "varianzaDistancia": 10.3126,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000203,
+      0.000122,
+      0.000243,
+      0.999432
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 62,
+    "apm": 48.0,
+    "precisionRelativa": 0.25,
+    "iet": 1.0008,
+    "varianzaDistancia": 13.745,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.05044,
+      0.000537,
+      0.000545,
+      0.948479
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 63,
+    "apm": 72.0,
+    "precisionRelativa": 0.0833,
+    "iet": 1.4065,
+    "varianzaDistancia": 10.6236,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000403,
+      0.000102,
+      0.000359,
+      0.999136
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 64,
+    "apm": 54.0,
+    "precisionRelativa": 0.1111,
+    "iet": 1.3408,
+    "varianzaDistancia": 5.2755,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000354,
+      9.7e-05,
+      9.8e-05,
+      0.999451
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 65,
+    "apm": 54.0,
+    "precisionRelativa": 0.2222,
+    "iet": 1.1467,
+    "varianzaDistancia": 17.8424,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000447,
+      0.000111,
+      0.000112,
+      0.99933
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 66,
+    "apm": 60.0,
+    "precisionRelativa": 0.2,
+    "iet": 2.1418,
+    "varianzaDistancia": 12.1826,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000179,
+      9.8e-05,
+      0.0001,
+      0.999623
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 67,
+    "apm": 48.0,
+    "precisionRelativa": 0.25,
+    "iet": 1.2284,
+    "varianzaDistancia": 8.3894,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.06826,
+      0.000568,
+      0.000577,
+      0.930596
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 68,
+    "apm": 78.0,
+    "precisionRelativa": 0.1538,
+    "iet": 1.9626,
+    "varianzaDistancia": 7.863,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000174,
+      0.000104,
+      0.000341,
+      0.999381
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 69,
+    "apm": 48.0,
+    "precisionRelativa": 0.125,
+    "iet": 1.1493,
+    "varianzaDistancia": 7.3991,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.03085,
+      0.000457,
+      0.000464,
+      0.968228
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 70,
+    "apm": 66.0,
+    "precisionRelativa": 0.1818,
+    "iet": 1.754,
+    "varianzaDistancia": 9.4349,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000326,
+      9.7e-05,
+      0.000193,
+      0.999384
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 71,
+    "apm": 54.0,
+    "precisionRelativa": 0.1111,
+    "iet": 1.1316,
+    "varianzaDistancia": 9.8825,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000445,
+      0.000112,
+      0.000114,
+      0.999329
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 72,
+    "apm": 54.0,
+    "precisionRelativa": 0.0,
+    "iet": 1.3099,
+    "varianzaDistancia": 7.4065,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000358,
+      9.8e-05,
+      9.9e-05,
+      0.999445
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 73,
+    "apm": 48.0,
+    "precisionRelativa": 0.25,
+    "iet": 1.3697,
+    "varianzaDistancia": 15.3304,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.011869,
+      0.000329,
+      0.000334,
+      0.987468
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 74,
+    "apm": 42.0,
+    "precisionRelativa": 0.1429,
+    "iet": 0.7976,
+    "varianzaDistancia": 15.134,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.488799,
+      0.001344,
+      0.001364,
+      0.508492
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 75,
+    "apm": 66.0,
+    "precisionRelativa": 0.6364,
+    "iet": 5.907,
+    "varianzaDistancia": 14.4309,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.00019,
+      0.000163,
+      0.001544,
+      0.998103
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 76,
+    "apm": 72.0,
+    "precisionRelativa": 0.0833,
+    "iet": 1.7883,
+    "varianzaDistancia": 11.5352,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000231,
+      0.000123,
+      0.000434,
+      0.999212
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 77,
+    "apm": 72.0,
+    "precisionRelativa": 0.1667,
+    "iet": 1.6298,
+    "varianzaDistancia": 11.5404,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000452,
+      0.000107,
+      0.000379,
+      0.999063
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 78,
+    "apm": 54.0,
+    "precisionRelativa": 0.1111,
+    "iet": 1.4004,
+    "varianzaDistancia": 6.0697,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000301,
+      8.8e-05,
+      8.9e-05,
+      0.999522
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 79,
+    "apm": 36.0,
+    "precisionRelativa": 0.1667,
+    "iet": 0.9267,
+    "varianzaDistancia": 11.4229,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.949909,
+      0.00062,
+      0.000629,
+      0.048842
+    ],
+    "esCasoFrontera": false
+  },
+  {
+    "id": 80,
+    "apm": 42.0,
+    "precisionRelativa": 0.1429,
+    "iet": 0.8286,
+    "varianzaDistancia": 11.6296,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.543617,
+      0.001328,
+      0.001348,
+      0.453708
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 81,
+    "apm": 54.0,
+    "precisionRelativa": 0.2222,
+    "iet": 1.4608,
+    "varianzaDistancia": 8.3777,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000335,
+      9.2e-05,
+      9.3e-05,
+      0.999479
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 82,
+    "apm": 54.0,
+    "precisionRelativa": 0.4444,
+    "iet": 4.5093,
+    "varianzaDistancia": 8.9631,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000485,
+      0.000314,
+      0.001463,
+      0.997738
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 83,
+    "apm": 54.0,
+    "precisionRelativa": 0.1111,
+    "iet": 1.2568,
+    "varianzaDistancia": 10.6441,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000464,
+      0.000115,
+      0.000116,
+      0.999305
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 84,
+    "apm": 30.0,
+    "precisionRelativa": 0.2,
+    "iet": 1.0509,
+    "varianzaDistancia": 6.4183,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.954728,
+      0.000551,
+      0.000559,
+      0.044161
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 85,
+    "apm": 48.0,
+    "precisionRelativa": 0.25,
+    "iet": 1.4886,
+    "varianzaDistancia": 8.5898,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.01138,
+      0.000321,
+      0.000326,
+      0.987972
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 86,
+    "apm": 36.0,
+    "precisionRelativa": 0.1667,
+    "iet": 0.8845,
+    "varianzaDistancia": 10.1002,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.945505,
+      0.000588,
+      0.000597,
+      0.053311
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 87,
+    "apm": 36.0,
+    "precisionRelativa": 0.1667,
+    "iet": 0.7935,
+    "varianzaDistancia": 10.7308,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.934484,
+      0.000606,
+      0.000615,
+      0.064296
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 88,
+    "apm": 30.0,
+    "precisionRelativa": 0.8,
+    "iet": 2.6026,
+    "varianzaDistancia": 10.5495,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.004057,
+      0.000537,
+      0.00029,
+      0.995115
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 89,
+    "apm": 42.0,
+    "precisionRelativa": 0.1429,
+    "iet": 1.2024,
+    "varianzaDistancia": 9.0611,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 0,
+    "expectedProbabilities": [
+      0.528719,
+      0.001218,
+      0.001237,
+      0.468826
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 90,
+    "apm": 54.0,
+    "precisionRelativa": 0.0,
+    "iet": 1.2482,
+    "varianzaDistancia": 9.6071,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000408,
+      0.000107,
+      0.000108,
+      0.999377
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 91,
+    "apm": 48.0,
+    "precisionRelativa": 0.125,
+    "iet": 0.9706,
+    "varianzaDistancia": 11.5334,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.070133,
+      0.000608,
+      0.000617,
+      0.928643
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 92,
+    "apm": 54.0,
+    "precisionRelativa": 0.2222,
+    "iet": 2.0645,
+    "varianzaDistancia": 8.2186,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000161,
+      9.6e-05,
+      9.8e-05,
+      0.999645
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 93,
+    "apm": 42.0,
+    "precisionRelativa": 0.0,
+    "iet": 1.275,
+    "varianzaDistancia": 5.9627,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.377681,
+      0.001377,
+      0.001398,
+      0.619544
+    ],
+    "esCasoFrontera": true
+  },
+  {
+    "id": 94,
+    "apm": 54.0,
+    "precisionRelativa": 0.2222,
+    "iet": 1.2295,
+    "varianzaDistancia": 8.3887,
+    "claseOriginalDataset": "Tactico",
+    "expectedLabel": 3,
+    "expectedProbabilities": [
+      0.000494,
+      0.000113,
+      0.000114,
+      0.999279
+    ],
+    "esCasoFrontera": true
+  }
+]

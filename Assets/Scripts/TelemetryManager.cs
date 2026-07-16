@@ -4,8 +4,8 @@ using UnityEngine;
 /// <summary>
 /// Motor de telemetría. Es el único dueño del tiempo de ventana.
 ///
-/// Cambios de arquitectura:
-/// - OnWindowCompleted emite solo el TelemetryTensor (firma de un solo parámetro).
+/// Arquitectura:
+/// - OnWindowCompleted emite solo el TelemetryTensor.
 /// - La clase supervisada (TargetClass) se inyecta en el tensor leyéndola del
 ///   SimulationManager via FindObjectOfType en PackageAndEmitTensor().
 /// </summary>
@@ -19,7 +19,7 @@ public class TelemetryManager : MonoBehaviour
     public Transform playerTransform;
     public Transform npcTransform;
 
-    // ── Evento C# estándar — firma original de un solo parámetro ──
+    // ── Evento C# estándar ──
     // La clase supervisada viaja DENTRO del tensor (TargetClass).
     public event Action<TelemetryTensor> OnWindowCompleted;
 
@@ -130,7 +130,7 @@ public class TelemetryManager : MonoBehaviour
             TargetClass = currentTargetClass // Inyección de la etiqueta supervisada
         };
 
-        // 5. Distancia promedio, varianza e IET (dependen de los acumuladores de distancia)
+        // Distancia promedio, varianza e IET (dependen de los acumuladores de distancia)
         float averageDistance = distanceSamples > 0 ? accumulatedDistance / distanceSamples : 0.1f;
 
         // Varianza: Var = E[X^2] - E[X]^2  (formula de König-Huygens, zero-allocation)
